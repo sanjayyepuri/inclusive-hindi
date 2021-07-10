@@ -3,15 +3,17 @@ import * as React from "react";
 import { Box, Flex, Container } from "@theme-ui/components";
 import Navbar from "./navbar";
 import UtHeader from "./ut-header";
+import Footer from "./footer";
 import { Divider } from "theme-ui";
 
-const Header = ({ children }) => (
+const HeaderBox = ({ children }) => (
   <Box
     as="header"
     sx={{
       width: "100%",
       position: "sticky",
       top: 0,
+      backgroundColor: "#fff",
     }}
   >
     {children}
@@ -30,11 +32,13 @@ const Main = ({ children }) => (
   </Box>
 );
 
-const Footer = ({ children }) => (
+const FooterBox = ({ children }) => (
   <Box
     as="footer"
     sx={{
       width: "100%",
+      backgroundColor: "#333f48",
+      color: "white",
     }}
   >
     {children}
@@ -48,20 +52,20 @@ const Layout = ({ children }) => (
       minHeight: "100vh",
     }}
   >
-    <Header>
+    <HeaderBox>
       <UtHeader />
       <Container pr={4} pl={4}>
         <Navbar />
       </Container>
-    </Header>
-    <Divider color="muted" mb={0} />
+    </HeaderBox>
 
     <Main>
         {children}
     </Main>
-
-    <Footer>
-    </Footer>
+    <Divider color="primary" mb={0}/>
+    <FooterBox>
+      <Footer />
+    </FooterBox>
   </Flex>
 );
 

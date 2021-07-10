@@ -15,7 +15,6 @@ const Section = ({ title, children, action = null }) => (
       {children}
     </Box>
     {action && <Button>{action}</Button>}
-    <Divider />
   </section>
 );
 
@@ -25,7 +24,7 @@ const IndexPage = () => {
       <Box sx={{ height: "15vh" }}>
         <Fill></Fill>
       </Box>
-      <Container p={4}>
+      <Container mr={4} ml={4} p={4}>
         <Heading sx={{
           fontSize:[4, 4, 6, 6]
         }}>
