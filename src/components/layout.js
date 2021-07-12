@@ -14,6 +14,7 @@ const HeaderBox = ({ children }) => (
       position: "sticky",
       top: 0,
       backgroundColor: "#fff",
+      zIndex: 999
     }}
   >
     {children}
