@@ -58,6 +58,7 @@ const Layout = ({ children }) => (
       <Container pr={4} pl={4}>
         <Navbar />
       </Container>
+      <Divider mt={0} mb={0} color="muted"/>
     </HeaderBox>
 
     <Main>

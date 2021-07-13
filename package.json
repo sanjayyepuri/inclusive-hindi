@@ -11,7 +11,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
     "@carbonplan/components": "^7.8.3",
@@ -30,6 +31,7 @@
     "gatsby-source-contentful": "^5.9.0",
     "gatsby-source-filesystem": "^3.9.0",
     "gatsby-transformer-sharp": "^3.9.0",
+    "gh-pages": "^3.2.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",

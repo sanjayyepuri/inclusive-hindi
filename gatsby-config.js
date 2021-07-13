@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/inclusive-hindi",
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
     title: "Inclusive Hindi",
@@ -40,5 +41,13 @@ module.exports = {
       },
       __key: "pages",
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "materials",
+        path: "./src/material",
+      },
+      __key: "materials"
+    }
   ],
 };
