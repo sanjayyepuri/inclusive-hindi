@@ -10,6 +10,17 @@ const theme =
     secondary: "#333f48",
   },
 
+  styles: {
+    ...base.styles,
+    navlink: {
+      color: "black",
+      textDecoration: "none",
+      '&:hover': {
+        color: "primary"
+      }
+    }
+  }
+
 };
 
 export default theme;
