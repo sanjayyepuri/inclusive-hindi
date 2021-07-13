@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: "/inclusive-hindi",
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://ssanjay.dev",
     title: "Inclusive Hindi",
   },
   plugins: [

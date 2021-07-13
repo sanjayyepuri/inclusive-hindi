@@ -2,28 +2,33 @@
 import { jsx } from "theme-ui";
 
 import { graphql, useStaticQuery } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
-import { Container, Box, Flex, Heading, Text } from "@theme-ui/components";
+import { Container, Box, Heading, Text } from "@theme-ui/components";
+
+import { getImage } from "gatsby-plugin-image";
+import { BgImage } from "gbimage-bridge";
+
 
 const Splash = () => {
-  const data = useStaticQuery(
+  const { background } = useStaticQuery(
     graphql`
       query {
-        background: file(relativePath: { eq: "pg-cochn11.JPG" }) {
+        background: file(relativePath: { eq: "pg-cochn11.jpg" }) {
           childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+              width: 200
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }
     `
   );
 
-  const imageData = data.background.childImageSharp.fluid;
+  const pluginImage = getImage(background);
 
   return (
-      <BackgroundImage Tag="section" fluid={imageData}>
+      <BgImage image={pluginImage} Tag="section">
         <Container
           sx={{ minHeight: "35vh", backdropFilter: "blur(2px)" }}
           p={4}
@@ -43,7 +48,7 @@ const Splash = () => {
             </Text>
           </Box>
         </Container>
-      </BackgroundImage>
+      </BgImage>
   );
 };
 
