@@ -30,7 +30,7 @@ const Footer = () => (
       alignItems: "center",
       p: 2,
       variant: "styles.footer",
-      height: ["10vh", "15vh"],
+      height: ["100%", "10vh", "10vh", "15vh"],
     }}
   >
     {footerLinks.map((footerLink) => (

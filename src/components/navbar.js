@@ -42,7 +42,7 @@ const NavMenu = ({ close }) => (
   >
     <Flex>
       <Box sx={{ mx: "auto" }}></Box>
-      <Text onClick={close} >Close</Text>
+      <Text onClick={close}>Close</Text>
     </Flex>
   </Box>
 );
