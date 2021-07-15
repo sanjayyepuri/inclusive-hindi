@@ -7,8 +7,9 @@ import {
   Box,
   Heading,
   Text,
+  Container,
   Link as NavLink,
-} from "@theme-ui/components";
+} from "theme-ui";
 import { Link } from "gatsby";
 import AnimateHeight from "react-animate-height";
 
@@ -42,7 +43,7 @@ const NavMenu = ({ close }) => (
   >
     <Flex>
       <Box sx={{ mx: "auto" }}></Box>
-      <Text onClick={close}>Close</Text>
+      <NavLink sx={{variant: "styles.navbutton"}} onClick={close}>Close</NavLink>
     </Flex>
   </Box>
 );
@@ -51,12 +52,8 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <Box
-      sx={{
-        mt: 3,
-        pb: 3,
-      }}
-    >
+
+    <Container sx={{py: 3}}>
       <Flex>
         <Heading
           sx={{
@@ -72,7 +69,7 @@ const Navbar = () => {
             <Link
               as={NavLink}
               to={item.path}
-              sx={{ variant: "styles.navlink" }}
+              sx={{ variant: "styles.navbutton" }}
               onClick={() => setShowMenu(true)}
             >
               {item.key}
@@ -83,7 +80,7 @@ const Navbar = () => {
       <AnimateHeight height={showMenu ? "auto" : 0}>
         <NavMenu close={() => setShowMenu(false)}></NavMenu>
       </AnimateHeight>
-    </Box>
+    </Container>
   );
 };
 

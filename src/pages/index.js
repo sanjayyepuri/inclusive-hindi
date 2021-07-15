@@ -1,9 +1,10 @@
-import * as React from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 
 import Layout from "../components/layout";
 import Splash from "../components/splash";
 
-import { Box, Container, Heading, Text, Button, Divider } from "@theme-ui/components";
+import { Box, Container, Heading, Text, Button, Divider } from "theme-ui";
 
 const issues = ["Colorism", "Gender Roles", "Casteism & Race", "LGBTQIA+"];
 // markup
@@ -22,7 +23,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <Splash />
-      <Container p={4}>
+      <Container sx={{my: [3, 4, 5, 6]}}>
         <Section title="Instructional Materials" action="Material">
           <Text>Material found and curated by former students.</Text>
           <ul>

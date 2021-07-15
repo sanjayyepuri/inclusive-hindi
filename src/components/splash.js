@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui";
 
 import { graphql, useStaticQuery } from "gatsby";
-import { Container, Box, Heading, Text } from "@theme-ui/components";
+import { Container, Box, Heading, Text } from "theme-ui";
 
 import { getImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
@@ -31,7 +31,7 @@ const Splash = () => {
       <BgImage image={pluginImage} Tag="section">
         <Container
           sx={{ minHeight: "35vh", backdropFilter: "blur(2px)" }}
-          p={4}
+          py={4}
         >
           <Box>
             <Heading

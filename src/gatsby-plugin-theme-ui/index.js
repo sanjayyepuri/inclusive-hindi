@@ -10,9 +10,18 @@ const theme =
     secondary: "#333f48",
   },
 
+  layout: {
+    ...base.layout,
+    container: {
+      px: [3, 4, 5, 6],
+      maxWidth: "1920px",
+    }
+  },
+
+
   styles: {
     ...base.styles,
-    navlink: {
+    navbutton: {
       color: "black",
       textDecoration: "none",
       '&:hover': {
