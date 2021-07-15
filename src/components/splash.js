@@ -7,7 +7,6 @@ import { Container, Box, Heading, Text } from "theme-ui";
 import { getImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
 
-
 const Splash = () => {
   const { background } = useStaticQuery(
     graphql`
@@ -28,27 +27,24 @@ const Splash = () => {
   const pluginImage = getImage(background);
 
   return (
-      <BgImage image={pluginImage} Tag="section">
-        <Container
-          sx={{ minHeight: "35vh", backdropFilter: "blur(2px)" }}
-          py={4}
-        >
-          <Box>
-            <Heading
-              sx={{
-                fontSize: [4, 4, 6, 6],
-                color: "white",
-              }}
-            >
-              Hello • नमस्ते
-            </Heading>
-            <Text sx={{ fontSize: [3, 4], color: "white" }}>
-              We are an effort to introduce more inclusive material for teaching
-              and learning Hindi in the classroom.
-            </Text>
-          </Box>
-        </Container>
-      </BgImage>
+    <BgImage image={pluginImage} Tag="section">
+      <Container sx={{ minHeight: "35vh", backdropFilter: "blur(2px)" }} py={4}>
+        <Box sx={{ maxWidth: "50%" }}>
+          <Heading
+            sx={{
+              fontSize: [4, 4, 6, 6],
+              color: "white",
+            }}
+          >
+            Hello • नमस्ते
+          </Heading>
+          <Text sx={{ fontSize: [3, 4], color: "white" }}>
+            We are an effort to introduce more inclusive material for teaching
+            and learning Hindi in the classroom.
+          </Text>
+        </Box>
+      </Container>
+    </BgImage>
   );
 };
 

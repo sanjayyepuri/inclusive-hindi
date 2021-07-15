@@ -5,7 +5,7 @@ const UtHeader = () => (
     style={{
       display: "block",
       background: "#bf5700",
-      height: "40px",
+      height: "2.5em",
       textAlign: "center",
     }}
   >
