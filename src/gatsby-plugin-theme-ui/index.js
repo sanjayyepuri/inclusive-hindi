@@ -22,6 +22,7 @@ const theme = {
     navbutton: {
       cursor: "pointer",
       color: "black",
+      background: "none",
       textDecoration: "none",
       "&:hover": {
         color: "primary",

@@ -22,7 +22,14 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/templates/default.js"),
+        },
+      },
+    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
@@ -47,7 +54,7 @@ module.exports = {
         name: "materials",
         path: "./src/material",
       },
-      __key: "materials"
-    }
+      __key: "materials",
+    },
   ],
 };
