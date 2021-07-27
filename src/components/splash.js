@@ -1,30 +1,14 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 
-import { graphql, useStaticQuery } from "gatsby";
 import { Container, Box, Heading, Text } from "theme-ui";
 
 import { getImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
 
-const Splash = () => {
-  const { background } = useStaticQuery(
-    graphql`
-      query {
-        background: file(relativePath: { eq: "pg-cochn11.jpg" }) {
-          childImageSharp {
-            gatsbyImageData(
-              width: 200
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
-        }
-      }
-    `
-  );
-
-  const pluginImage = getImage(background);
+const Splash = ({ data }) => {
+  const { title, subtitle, backgroundImage } = data;
+  const pluginImage = getImage(backgroundImage.localFile);
 
   return (
     <BgImage image={pluginImage} Tag="section">
@@ -36,11 +20,10 @@ const Splash = () => {
               color: "white",
             }}
           >
-            Hello • नमस्ते
+            {title}
           </Heading>
           <Text sx={{ fontSize: [3, 4], color: "white" }}>
-            We are an effort to introduce more inclusive material for teaching
-            and learning Hindi in the classroom.
+            {subtitle}
           </Text>
         </Box>
       </Container>

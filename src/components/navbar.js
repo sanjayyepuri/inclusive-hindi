@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { InitializeColorMode, jsx } from "theme-ui";
+import { jsx } from "theme-ui";
 import { useState } from "react";
 
 import { Flex, Box, Heading, Text, Container, Link as NavLink } from "theme-ui";
@@ -14,7 +14,6 @@ const materialLinks = [
 ];
 
 const items = [
-  { label: "Home", key: "home", path: "/" },
   {
     label: "Material",
     key: "material",

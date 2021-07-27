@@ -1,13 +1,15 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import { jsx } from "theme-ui";
 
 import Layout from "../components/layout";
 import Splash from "../components/splash";
 
+import ContentfulRenderer from "../components/contentfulRenderer";
+
 import { Box, Container, Heading, Text, Button, Divider } from "theme-ui";
+import { graphql } from "gatsby";
 
 const issues = ["Colorism", "Gender Roles", "Casteism & Race", "LGBTQIA+"];
-// markup
 
 const Section = ({ title, children, action = null }) => (
   <section>
@@ -19,35 +21,42 @@ const Section = ({ title, children, action = null }) => (
   </section>
 );
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+  const { splash, projectDescription } = data.homepage;
+
   return (
     <Layout>
-      <Splash />
-      <Container sx={{my: [3, 4, 5, 6]}}>
-        <Section title="Instructional Materials" action="Material">
-          <Text>Material found and curated by former students.</Text>
-          <ul>
-            {issues.map((issue) => (
-              <li> {issue} </li>
-            ))}
-          </ul>
-        </Section>
-
-        <Section title="Grammar" action="Grammar">
-          <Text>
-            A grassroots effort to make Hindi Grammar more inclusive.{" "}
-          </Text>
-        </Section>
-
-        <Section title="Inclusive Classroom Survey" action="Survey">
-          <Text>
-            Give feedback about the general classroom climate throughout the
-            semester.
-          </Text>
-        </Section>
+      <Splash data={splash} />
+      <Container sx={{ my: [3, 4, 5, 6] }}>
+        <ContentfulRenderer content={projectDescription} />
       </Container>
     </Layout>
   );
 };
+
+export const query = graphql`
+  query HomePageQuery {
+    homepage: contentfulHomePage {
+      splash {
+        title
+        subtitle
+        backgroundImage {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(
+                width: 800
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
+        }
+      }
+      projectDescription {
+        raw
+      }
+    }
+  }
+`;
 
 export default IndexPage;

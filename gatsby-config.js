@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   pathPrefix: "/inclusive-hindi",
   siteMetadata: {
@@ -5,13 +7,14 @@ module.exports = {
     title: "Inclusive Hindi",
   },
   plugins: [
-    // {
-    //   resolve: "gatsby-source-contentful",
-    //   options: {
-    //     accessToken: "",
-    //     spaceId: "",
-    //   },
-    // },
+    {
+      resolve: "gatsby-source-contentful",
+      options: {
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        downloadLocal: true,
+      },
+    },
     "gatsby-plugin-theme-ui",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
