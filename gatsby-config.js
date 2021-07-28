@@ -1,9 +1,8 @@
 require("dotenv").config();
 
 module.exports = {
-  pathPrefix: "/inclusive-hindi",
   siteMetadata: {
-    siteUrl: "https://ssanjay.dev",
+    siteUrl: "https://utw11109.utweb.utexas.edu/",
     title: "Inclusive Hindi",
   },
   plugins: [
