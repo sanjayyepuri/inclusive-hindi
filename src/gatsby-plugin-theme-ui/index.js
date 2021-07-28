@@ -1,4 +1,4 @@
-import { base as base } from "@theme-ui/presets";
+import { base } from "@theme-ui/presets";
 
 const theme = {
   ...base,

@@ -84,7 +84,7 @@ exports.createPages = async ({ graphql, actions }) => {
     ...await getAllMaterials(graphql),
     ...await getAllMdx(graphql),
     ...await getAllPages(graphql),
-  ]
+  ];
 
   pages.forEach((page) => {
     createPage(page);
