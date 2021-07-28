@@ -1,11 +1,18 @@
 import { Container, Flex, Box, Link, Text } from "@theme-ui/components";
 import * as React from "react";
+import { NavLink } from "theme-ui";
 
 const footerLinks = [
-  "Emergency Information",
-  "Site Policies",
-  "Web Accessibility Policy",
-  "Web Privacy Policy",
+  { label: "Emergency Information", href: "https://emergency.utexas.edu/" },
+  { label: "Site Policies", href: "https://www.utexas.edu/site-policies" },
+  {
+    label: "Web Accessibility Policy",
+    href: "https://it.utexas.edu/policies/web-accessibility",
+  },
+  {
+    label: "Web Privacy Policy",
+    href: "https://it.utexas.edu/policies/web-privacy",
+  },
 ];
 
 const FooterItem = ({ children }) => (
@@ -23,24 +30,31 @@ const FooterItem = ({ children }) => (
 );
 
 const Footer = () => (
-  <Box
-    sx={{
-      display: "flex",
-      flexWrap: "wrap",
-      alignItems: "center",
-      p: 2,
-      variant: "styles.footer",
-      height: ["100%", "10vh", "10vh", "15vh"],
-    }}
-  >
-    {footerLinks.map((footerLink) => (
-      <FooterItem>
-        <Text>{footerLink}</Text>
-      </FooterItem>
-    ))}
+  <Box>
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "center",
+        m: 4,
+        variant: "styles.footer",
+        minHeight: ["100%", "8vh", "8vh", "10vh"],
+      }}
+    >
+      {footerLinks.map(({ label, href }) => (
+        <FooterItem key={label}>
+          <NavLink
+            href={href}
+            sx={{ variant: "styles.navbutton", color: "white" }}
+          >
+            {label}
+          </NavLink>
+        </FooterItem>
+      ))}
 
-    <Box sx={{ mx: "auto" }} />
-    <Box sx={{ p: 4 }}>© 2019 Jane Doe</Box>
+      <Box sx={{ mx: "auto" }} />
+      <Box sx={{ p: 4 }}>© 2019 Jane Doe</Box>
+    </Box>
   </Box>
 );
 
