@@ -3,39 +3,8 @@ import { jsx } from "theme-ui";
 import { useState } from "react";
 
 import { Flex, Box, Heading, Text, Container, Link as NavLink } from "theme-ui";
-import { Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import AnimateHeight from "react-animate-height";
-
-const materialLinks = [
-  { label: "Colorism", key: "colorism", path: "/" },
-  { label: "Gender Roles", key: "gender-roles", path: "/" },
-  { label: "Casteism & Race", key: "casteism-race", path: "/" },
-  { label: "LGBTQIA+", key: "lgbtqia+", path: "/" },
-];
-
-const items = [
-  {
-    label: "Material",
-    key: "material",
-    menu: (
-      <Flex>
-        <Box sx={{ width: "65%" }}>
-          <Heading>Instructional Material</Heading>
-          <Text>Material Found and Curated by Former Students.</Text>
-        </Box>
-        <Box>
-          <ul>
-            {materialLinks.map(({ label, key, path }) => (
-              <li key={key}>{label}</li>
-            ))}
-          </ul>
-        </Box>
-      </Flex>
-    ),
-  },
-  { label: "Grammar", key: "grammar", path: "/" },
-  { label: "About", key: "about", path: "/" },
-];
 
 const NavItem = ({ children, item, toggleMenu }) => {
   return (
@@ -84,6 +53,24 @@ const NavMenu = ({ close, showMenu, children }) => (
   </AnimateHeight>
 );
 
+const NavMenuItem = ({ title, subtitle, chidren}) => {
+  return (
+    <Flex>
+      <Box sx={{ width: "65%" }}>
+        <Heading>{title}</Heading>
+        <Text>{subtitle}</Text>
+      </Box>
+      <Box>
+        <ul>
+          {/* {materialLinks.map(({ label, key, path }) => (
+            <li key={key}>{label}</li>
+          ))} */}
+        </ul>
+      </Box>
+    </Flex>
+  );
+};
+
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
@@ -102,6 +89,32 @@ const Navbar = () => {
     };
   };
 
+  const data = useStaticQuery(graphql`
+    query NavbarQuery {
+      site: allContentfulPage(filter: { navbarDisplay: { ne: "Disabled" } }) {
+        pages: edges {
+          link: node {
+            slug
+            navbarName
+            navbarDisplay
+            navbarSubtitle {
+              navbarSubtitle
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const items = data.site.pages.map((link) => {
+    const { slug, navbarName, navbarDisplay, navbarSubtitle } = link.link;
+    return {
+      label: navbarName,
+      key: slug,
+      path: `/${slug}`
+    }
+  });
+  
   return (
     <Container sx={{ py: 3 }}>
       <Flex as="ul" sx={{ height: "4em", p: 0 }}>
@@ -118,7 +131,6 @@ const Navbar = () => {
             Inclusive Hindi
           </Link>
         </li>
-        <Box key={"space"} sx={{ mx: "auto" }}></Box>
         {items.map((item) => (
           <NavItem
             key={item.key}
