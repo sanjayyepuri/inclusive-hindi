@@ -1,9 +1,9 @@
 import * as React from "react";
 
+import Layout from "../components/layout";
+
 import { MDXProvider } from "@theme-ui/mdx";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-
-import Layout from "../components/layout";
 import { Container, Divider } from "@theme-ui/components";
 import { graphql } from "gatsby";
 

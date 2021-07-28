@@ -37,9 +37,6 @@ const getAllPages = async (graphql) => {
   return contentfulPages.data.site.pages.map((data) => {
     const { post } = data;
     const slug = post.slug === "home-page" ? "" : post.slug;
-
-    console.log(slug);
-
     return {
       path: `/${slug}`,
       component: path.resolve("src/templates/page.js"),

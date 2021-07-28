@@ -2,11 +2,11 @@
 import { jsx } from "theme-ui";
 
 import Layout from "../components/layout";
-
-import { graphql } from "gatsby";
 import contentfulMapping from "../components/contentfulMapping";
 
-const IndexPage = ({ data }) => {
+import { graphql } from "gatsby";
+
+const Page = ({ data }) => {
   const { sections } = data.page;
   return (
     <Layout>
@@ -59,4 +59,4 @@ export const query = graphql`
   }
 `;
 
-export default IndexPage;
+export default Page;
