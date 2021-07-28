@@ -1,38 +1,45 @@
-import * as React from "react";
-
-import { MDXProvider } from "@theme-ui/mdx";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 
 import Layout from "../components/layout";
-import { Container, Divider } from "@theme-ui/components";
+
 import { graphql } from "gatsby";
+import contentfulMapping from "../components/contentfulMapping";
 
-const Material = ({ data }) => {
-  const post = data.material.posts[0];
-
+const IndexPage = ({ data }) => {
+  const { sections } = data.material;
   return (
     <Layout>
-      <Container p={4}>
-        <MDXProvider>
-          <MDXRenderer>{post.body}</MDXRenderer>
-        </MDXProvider>
-      </Container>
+      {sections.map((section) => {
+        const Comp = contentfulMapping[section.__typename];
+
+        return <div>{Comp && <Comp data={section} />}</div>;
+      })}
     </Layout>
   );
 };
 
-export default Material;
 export const query = graphql`
   query MaterialQuery($slug: String!) {
-    material: allMdx(filter: { slug: { eq: $slug } }) {
-      posts: nodes {
-        body
-        slug
-        frontmatter {
-          title
+    material: contentfulMaterial(slug: { eq: $slug }) {
+      sections {
+        ... on ContentfulMaterialTranscript {
+          id
+          description {
+            raw
+          }
+          transcript {
+            raw
+          }
+
+          vocabularyList {
+            raw
+          }
+          __typename
         }
       }
     }
   }
 `;
 
+export default IndexPage;

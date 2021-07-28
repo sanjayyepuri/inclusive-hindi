@@ -7,8 +7,7 @@ import { graphql } from "gatsby";
 import contentfulMapping from "../components/contentfulMapping";
 
 const IndexPage = ({ data }) => {
-  console.log(JSON.stringify(data));
-  const { sections } = data.homepage;
+  const { sections } = data.page;
   return (
     <Layout>
       {sections.map((section) => {
@@ -21,8 +20,8 @@ const IndexPage = ({ data }) => {
 };
 
 export const query = graphql`
-  query HomePageQuery {
-    homepage: contentfulPage(title: { eq: "Home Page" }) {
+  query PageQuery($slug: String!) {
+    page: contentfulPage(slug: { eq: $slug }) {
       sections {
         ... on ContentfulPageBlock {
           id
