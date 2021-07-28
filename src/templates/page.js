@@ -25,7 +25,7 @@ export const query = graphql`
       sections {
         ... on ContentfulPageBlock {
           id
-          title
+          name
           __typename
           body {
             raw
@@ -54,7 +54,6 @@ export const query = graphql`
           __typename
         }
       }
-      title
     }
   }
 `;

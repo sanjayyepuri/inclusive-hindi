@@ -6,6 +6,16 @@ import { Flex, Box, Heading, Text, Container, Link as NavLink } from "theme-ui";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import AnimateHeight from "react-animate-height";
 
+const getLinks = (links) => {
+  return links.map((link) => {
+    const slug = link.topic
+      ? `/${link.topic[0].slug}/${link.slug}`
+      : `/${link.slug}`;
+
+    return { label: link.name, link: slug };
+  });
+};
+
 const NavItem = ({ children, item, toggleMenu }) => {
   return (
     <li key={item.key} sx={{ variant: "styles.navitem" }}>
@@ -53,7 +63,7 @@ const NavMenu = ({ close, showMenu, children }) => (
   </AnimateHeight>
 );
 
-const NavMenuItem = ({ title, subtitle, chidren}) => {
+const NavMenuItem = ({ title, subtitle, links }) => {
   return (
     <Flex>
       <Box sx={{ width: "65%" }}>
@@ -62,9 +72,18 @@ const NavMenuItem = ({ title, subtitle, chidren}) => {
       </Box>
       <Box>
         <ul>
-          {/* {materialLinks.map(({ label, key, path }) => (
-            <li key={key}>{label}</li>
-          ))} */}
+          {links.map(({ label, key, link }) => (
+            <li key={key}>
+              <Link
+                as={NavLink}
+                to={link}
+                id={key}
+                sx={{ variant: "styles.navbutton" }}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </Box>
     </Flex>
@@ -100,6 +119,20 @@ const Navbar = () => {
             navbarSubtitle {
               navbarSubtitle
             }
+            links {
+              ... on ContentfulPage {
+                slug
+                name
+                __typename
+              }
+              ... on ContentfulMaterial {
+                name
+                slug
+                topic {
+                  slug
+                }
+              }
+            }
           }
         }
       }
@@ -107,14 +140,31 @@ const Navbar = () => {
   `);
 
   const items = data.site.pages.map((link) => {
-    const { slug, navbarName, navbarDisplay, navbarSubtitle } = link.link;
+    const { slug, navbarName, navbarDisplay, navbarSubtitle, links } =
+      link.link;
+
+    let behavior;
+    if (navbarDisplay === "Only Link") {
+      behavior = { path: `/${slug}` };
+    } else {
+      behavior = {
+        menu: (
+          <NavMenuItem
+            title={navbarName}
+            subtitle={navbarSubtitle.navbarSubtitle}
+            links={getLinks(links)}
+          />
+        ),
+      };
+    }
+
     return {
       label: navbarName,
       key: slug,
-      path: `/${slug}`
-    }
+      ...behavior
+    };
   });
-  
+
   return (
     <Container sx={{ py: 3 }}>
       <Flex as="ul" sx={{ height: "4em", p: 0 }}>
