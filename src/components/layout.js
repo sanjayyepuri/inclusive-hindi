@@ -14,7 +14,7 @@ const HeaderBox = ({ children }) => (
       position: "sticky",
       top: 0,
       backgroundColor: "#fff",
-      zIndex: 999
+      zIndex: 999,
     }}
   >
     {children}
@@ -56,18 +56,15 @@ const Layout = ({ children }) => (
     <HeaderBox>
       <UtHeader />
       <Navbar />
-      <Divider mt={0} mb={0} color="muted"/>
+      <Divider mt={0} mb={0} color="muted" />
     </HeaderBox>
 
-    <Main>
-        {children}
-    </Main>
-    <Divider color="primary" mb={0}/>
+    <Main>{children}</Main>
+    <Divider color="primary" mb={0} />
     <FooterBox>
       <Footer />
     </FooterBox>
   </Flex>
 );
-
 
 export default Layout;

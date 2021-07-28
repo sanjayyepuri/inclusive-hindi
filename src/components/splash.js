@@ -22,9 +22,7 @@ const Splash = ({ data }) => {
           >
             {title}
           </Heading>
-          <Text sx={{ fontSize: [3, 4], color: "white" }}>
-            {subtitle}
-          </Text>
+          <Text sx={{ fontSize: [3, 4], color: "white" }}>{subtitle}</Text>
         </Box>
       </Container>
     </BgImage>

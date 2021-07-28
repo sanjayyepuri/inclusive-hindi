@@ -9,5 +9,4 @@ const ContentfulRenderer = ({ content }) => {
   return <div>{content && renderRichText(content, options)}</div>;
 };
 
-
 export default ContentfulRenderer;

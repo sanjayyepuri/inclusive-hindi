@@ -120,7 +120,11 @@ const Navbar = () => {
         </li>
         <Box key={"space"} sx={{ mx: "auto" }}></Box>
         {items.map((item) => (
-          <NavItem key={item.key} item={item} toggleMenu={getToggleMenu(item)} />
+          <NavItem
+            key={item.key}
+            item={item}
+            toggleMenu={getToggleMenu(item)}
+          />
         ))}
       </Flex>
       <NavMenu showMenu={showMenu} close={() => setShowMenu(false)}>
