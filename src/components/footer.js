@@ -1,6 +1,5 @@
-import { Container, Flex, Box, Link, Text } from "@theme-ui/components";
 import * as React from "react";
-import { NavLink } from "theme-ui";
+import { NavLink, Box } from "theme-ui";
 
 const footerLinks = [
   { label: "Emergency Information", href: "https://emergency.utexas.edu/" },

@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui";
-
 import Block from "./block";
 import Splash from "./splash";
 import Transcript from "./transcript";

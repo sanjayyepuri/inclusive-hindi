@@ -1,10 +1,11 @@
 import * as React from "react";
 
-import { Box, Flex, Container } from "@theme-ui/components";
 import Navbar from "./navbar";
 import UtHeader from "./ut-header";
 import Footer from "./footer";
+
 import { Divider } from "theme-ui";
+import { Box, Flex } from "@theme-ui/components";
 
 const HeaderBox = ({ children }) => (
   <Box
