@@ -59,14 +59,11 @@ const theme = {
 
   cards: {
     primary: {
-      padding: 2,
-      borderRadius: 4,
-    },
-    compact: {
+      backgroundColor: "#fafafa",
       padding: 2,
       borderRadius: 4,
       border: "1px solid",
-      borderColor: "muted",
+      borderColor: "#e5e5e5",
     },
   },
 };

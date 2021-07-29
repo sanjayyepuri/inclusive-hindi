@@ -2,15 +2,7 @@
 import { Divider, jsx } from "theme-ui";
 import { useState } from "react";
 
-import {
-  Flex,
-  Box,
-  Card,
-  Heading,
-  Text,
-  Container,
-  Link as NavLink,
-} from "theme-ui";
+import { Flex, Box, Heading, Text, Container, Link as NavLink } from "theme-ui";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import AnimateHeight from "react-animate-height";
 
@@ -19,9 +11,10 @@ import { IoClose } from "@react-icons/all-files/io5/IoClose";
 
 const getLinks = (links) => {
   return links.map((link) => {
-    const slug = link.topic
-      ? `/${link.topic[0].slug}/${link.slug}`
-      : `/${link.slug}`;
+    const slug =
+      link.__typename === "ContentfulMaterial"
+        ? `/${link.topic[0].slug}/${link.slug}`
+        : `/${link.slug}`;
 
     return { label: link.name, link: slug };
   });
@@ -80,7 +73,11 @@ const NavMenuItem = ({ title, subtitle, links, path }) => {
   return (
     <Flex sx={{ maxHeight: "10em" }}>
       <Box sx={{ width: "65%" }}>
-        <Heading sx={{ variant: "styles.navbutton", display: "block", fontSize: 3 }} as={Link} to={path}>
+        <Heading
+          sx={{ variant: "styles.navbutton", display: "block", fontSize: 3 }}
+          as={Link}
+          to={path}
+        >
           {title}
         </Heading>
         <Text>{subtitle}</Text>
@@ -144,6 +141,7 @@ const Navbar = () => {
                 topic {
                   slug
                 }
+                __typename
               }
             }
           }
