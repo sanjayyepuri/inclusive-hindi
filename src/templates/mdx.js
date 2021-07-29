@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import { MDXProvider } from "@theme-ui/mdx";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
-import { Container  } from "theme-ui"
+import { Container  } from "theme-ui";
 import { graphql } from "gatsby";
 
 const Material = ({ data }) => {

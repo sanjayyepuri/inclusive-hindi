@@ -7,6 +7,7 @@ const theme = {
     ...base.colors,
     primary: "#bf5700",
     secondary: "#333f48",
+    beige: "#ebe8e2",
   },
 
   layout: {
@@ -34,6 +35,38 @@ const theme = {
       display: "flex",
       alignContent: "center",
       alignItems: "center",
+    },
+
+    menuitem: {
+      minWidth: ["8em"],
+      display: "flex",
+      alignContent: "center",
+      alignItems: "center",
+      justifyContent: "space-between",
+      cursor: "pointer",
+      color: "black",
+      background: "none",
+      textDecoration: "none",
+      "&:hover": {
+        backgroundColor: "primary",
+        color: "white",
+      },
+      borderStyle: "none none solid none",
+      borderWidth: "1px",
+      flex: "1 1 33%",
+    },
+  },
+
+  cards: {
+    primary: {
+      padding: 2,
+      borderRadius: 4,
+    },
+    compact: {
+      padding: 2,
+      borderRadius: 4,
+      border: "1px solid",
+      borderColor: "muted",
     },
   },
 };

@@ -4,7 +4,6 @@ import Navbar from "./navbar";
 import UtHeader from "./ut-header";
 import Footer from "./footer";
 
-import { Divider } from "theme-ui";
 import { Box, Flex } from "@theme-ui/components";
 
 const HeaderBox = ({ children }) => (
@@ -57,11 +56,9 @@ const Layout = ({ children }) => (
     <HeaderBox>
       <UtHeader />
       <Navbar />
-      <Divider mt={0} mb={0} color="muted" />
     </HeaderBox>
 
     <Main>{children}</Main>
-    <Divider color="primary" mb={0} />
     <FooterBox>
       <Footer />
     </FooterBox>
