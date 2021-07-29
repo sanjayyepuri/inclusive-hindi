@@ -54,7 +54,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "materials",
-        path: "./src/material",
+        path: "./src/material/",
       },
       __key: "materials",
     },

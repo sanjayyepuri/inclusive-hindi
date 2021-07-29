@@ -18,7 +18,7 @@ const getAllMdx = async (graphql) => {
         slug: post.slug,
       },
     };
-  });
+  }).filter(page => page.context.slug);
 };
 
 const getAllPages = async (graphql) => {
