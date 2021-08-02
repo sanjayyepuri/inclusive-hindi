@@ -135,14 +135,6 @@ const Navbar = () => {
                 name
                 __typename
               }
-              ... on ContentfulMaterial {
-                name
-                slug
-                topic {
-                  slug
-                }
-                __typename
-              }
             }
           }
         }

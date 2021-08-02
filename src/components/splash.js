@@ -11,8 +11,15 @@ const Splash = ({ data }) => {
   const pluginImage = getImage(backgroundImage.localFile);
 
   return (
-    <BgImage image={pluginImage} Tag="section">
-      <Container sx={{ minHeight: "35vh", backdropFilter: "blur(2px)" }} py={4}>
+    <BgImage
+      style={{
+        backgroundColor: "#bf5700",
+        backgroundSize: "contain",
+      }}
+      image={pluginImage}
+      Tag="section"
+    >
+      <Container sx={{ minHeight: "35vh" }} py={4}>
         <Box sx={{ maxWidth: "50%" }}>
           <Heading
             sx={{
@@ -22,7 +29,9 @@ const Splash = ({ data }) => {
           >
             {title ? title : ""}
           </Heading>
-          <Text sx={{ fontSize: [3, 4], color: "white" }}>{subtitle ? subtitle : ""}</Text>
+          <Text sx={{ fontSize: [3, 4], color: "white" }}>
+            {subtitle ? subtitle : ""}
+          </Text>
         </Box>
       </Container>
     </BgImage>

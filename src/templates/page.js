@@ -95,14 +95,6 @@ export const query = graphql`
           name
           __typename
         }
-        ... on ContentfulMaterial {
-          name
-          slug
-          topic {
-            slug
-          }
-          __typename
-        }
       }
     }
   }
