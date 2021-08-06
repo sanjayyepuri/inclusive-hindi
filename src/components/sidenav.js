@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import { Link } from "gatsby";
 import { jsx } from "theme-ui";
 
 import { Container, Card, NavLink, Box, Heading } from "theme-ui";
@@ -9,9 +10,14 @@ const SideNav = ({ links }) => {
       <Heading> Links </Heading>
       <Card>
         {links.map(({ label, link }) => (
-          <NavLink key={link} sx={{ display: "block" }}>
+          <Link
+            to={`${link}`}
+            as={NavLink}
+            key={link}
+            sx={{ display: "block", variant: "styles.navbutton" }}
+          >
             {label}
-          </NavLink>
+          </Link>
         ))}
       </Card>
     </Container>
