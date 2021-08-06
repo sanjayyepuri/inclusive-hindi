@@ -157,7 +157,7 @@ const Navbar = () => {
           <NavMenuItem
             title={navbarName}
             subtitle={navbarSubtitle.navbarSubtitle}
-            links={getLinks(links)}
+            links={links ? getLinks(links): []}
             path={path}
           />
         ),
