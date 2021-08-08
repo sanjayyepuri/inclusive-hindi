@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import { graphql } from "gatsby";
 import { Heading, jsx } from "theme-ui";
 
 import { Container } from "theme-ui";
@@ -17,4 +18,22 @@ const Transcript = ({ data }) => {
   );
 };
 
+const TranscriptFragment = graphql`
+  fragment TranscriptRenderFields on ContentfulMaterialTranscript {
+    id
+    description {
+      raw
+    }
+    transcript {
+      raw
+    }
+
+    vocabularyList {
+      raw
+    }
+    __typename
+  }
+`;
+
 export default Transcript;
+export { TranscriptFragment };

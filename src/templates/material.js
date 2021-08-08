@@ -29,18 +29,7 @@ export const query = graphql`
       name
       sections {
         ... on ContentfulMaterialTranscript {
-          id
-          description {
-            raw
-          }
-          transcript {
-            raw
-          }
-
-          vocabularyList {
-            raw
-          }
-          __typename
+          ... TranscriptRenderFields
         }
       }
     }
