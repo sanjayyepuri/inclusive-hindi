@@ -1,17 +1,23 @@
 /** @jsx jsx */
 import { graphql } from "gatsby";
-import { Card, jsx } from "theme-ui";
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Box, Grid, Card, jsx } from "theme-ui";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const TeamMember = ({ data }) => {
   const { name, blurb, profileImage } = data;
   const propic = getImage(profileImage.localFile);
-  
+
   return (
     <Card>
-      <h4> {name} </h4>
-      <p> {blurb.blurb} </p>
-      <GatsbyImage image={propic} />
+      <h2> {name} </h2>
+      <Grid columns={[2, "2fr 1fr"]}>
+        <Box>
+          <p> {blurb.blurb} </p>
+        </Box>
+        <Box>
+          <GatsbyImage image={propic} style={{ borderRadius: 4 }} />
+        </Box>
+      </Grid>
     </Card>
   );
 };

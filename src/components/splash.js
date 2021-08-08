@@ -16,12 +16,20 @@ const Splash = ({ data }) => {
       style={{
         backgroundColor: "#bf5700",
         backgroundSize: "contain",
+        backgroundPosition: "left",
       }}
       image={pluginImage}
       Tag="section"
     >
       <Container sx={{ minHeight: "35vh" }} py={4}>
-        <Box sx={{ maxWidth: "50%" }}>
+        <Box
+          sx={{
+            my: [1, 2, 2, 2],
+            position: "absolute",
+            maxWidth: "100%",
+            bottom: 0,
+          }}
+        >
           <Heading
             sx={{
               fontSize: [4, 4, 6, 6],
