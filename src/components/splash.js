@@ -5,6 +5,7 @@ import { Container, Box, Heading, Text } from "theme-ui";
 
 import { getImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
+import { graphql } from "gatsby";
 
 const Splash = ({ data }) => {
   const { title, subtitle, backgroundImage } = data;
@@ -38,4 +39,25 @@ const Splash = ({ data }) => {
   );
 };
 
+const SplashFragment = graphql`
+  fragment SplashRenderFields on ContentfulPageSplash {
+    id
+    title
+    subtitle
+    backgroundImage {
+      localFile {
+        childImageSharp {
+          gatsbyImageData(
+            width: 800
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
+      }
+    }
+    __typename
+  }
+`;
+
 export default Splash;
+export { SplashFragment };

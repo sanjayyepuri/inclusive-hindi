@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import { graphql } from "gatsby";
 import { jsx } from "theme-ui";
 
 import { Container } from "theme-ui";
@@ -13,4 +14,21 @@ const Block = ({ data }) => {
   );
 };
 
+const BlockFragment = graphql`
+  fragment BlockRenderFields on ContentfulPageBlock {
+    id
+    name
+    __typename
+    body {
+      raw
+      references {
+        ... on ContentfulTeamMember {
+          ...TeamMemberRenderFields
+        }
+      }
+    }
+  }
+`;
+
 export default Block;
+export { BlockFragment };

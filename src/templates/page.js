@@ -59,29 +59,11 @@ export const query = graphql`
     page: contentfulPage(slug: { eq: $slug }) {
       sections {
         ... on ContentfulPageBlock {
-          id
-          name
-          __typename
-          body {
-            raw
-          }
+          ... BlockRenderFields
         }
+        
         ... on ContentfulPageSplash {
-          id
-          title
-          subtitle
-          backgroundImage {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(
-                  width: 800
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                )
-              }
-            }
-          }
-          __typename
+          ... SplashRenderFields
         }
         ... on ContentfulTopic {
           id

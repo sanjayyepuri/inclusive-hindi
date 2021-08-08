@@ -126,9 +126,6 @@ const Navbar = () => {
             slug
             navbarName
             navbarDisplay
-            navbarSubtitle {
-              navbarSubtitle
-            }
             links {
               ... on ContentfulPage {
                 slug
