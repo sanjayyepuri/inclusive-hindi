@@ -66,9 +66,7 @@ export const query = graphql`
           ... SplashRenderFields
         }
         ... on ContentfulTopic {
-          id
-          name
-          __typename
+          ... TopicRenderFields
         }
       }
       links {

@@ -2,7 +2,7 @@
 import { Link } from "gatsby";
 import { jsx } from "theme-ui";
 
-import { Container, Card, NavLink, Box, Heading } from "theme-ui";
+import { Container, Card, NavLink, Heading } from "theme-ui";
 
 const SideNav = ({ links }) => {
   return (
