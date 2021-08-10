@@ -120,28 +120,28 @@ const Navbar = () => {
 
   const data = useStaticQuery(graphql`
     query NavbarQuery {
-      site: allContentfulPage(filter: { navbarDisplay: { ne: "Disabled" } }) {
-        pages: edges {
-          link: node {
-            slug
-            navbarName
-            navbarDisplay
-            links {
-              ... on ContentfulPage {
-                slug
-                name
-                __typename
-              }
+      nav: contentfulNavigationBar(slug: { eq: "main-navigation" }) {
+        title
+        links {
+          name
+          navbarName
+          navbarDisplay
+          slug
+          links {
+            ... on ContentfulPage {
+              slug
+              name
+              __typename
             }
           }
         }
       }
     }
   `);
-
-  const items = data.site.pages.map((link) => {
+  const { title, links } = data.nav;
+  const items = links.map((link) => {
     const { slug, navbarName, navbarDisplay, navbarSubtitle, links } =
-      link.link;
+      link;
 
     const path = `/${slug}`;
 
@@ -153,8 +153,8 @@ const Navbar = () => {
         menu: (
           <NavMenuItem
             title={navbarName}
-            subtitle={navbarSubtitle.navbarSubtitle}
-            links={links ? getLinks(links): []}
+            subtitle={navbarSubtitle ? navbarSubtitle.navbarSubtitle : ""}
+            links={links ? getLinks(links) : []}
             path={path}
           />
         ),
@@ -182,7 +182,7 @@ const Navbar = () => {
                 variant: "styles.navbutton",
               }}
             >
-              Inclusive Hindi
+              {title}
             </Link>
           </li>
           {items.map((item) => (

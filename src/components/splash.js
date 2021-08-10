@@ -12,38 +12,38 @@ const Splash = ({ data }) => {
   const pluginImage = getImage(backgroundImage.localFile);
 
   return (
-    <BgImage
-      style={{
-        backgroundColor: "#bf5700",
-        backgroundSize: "contain",
-        backgroundPosition: "left",
-      }}
-      image={pluginImage}
-      Tag="section"
-    >
-      <Container sx={{ minHeight: "35vh" }} py={4}>
-        <Box
+    <Box>
+      <BgImage
+        style={{
+          backgroundColor: "#bf5700",
+          backgroundSize: "contain",
+          backgroundPosition: "left",
+        }}
+        image={pluginImage}
+        Tag="section"
+      >
+        <Container sx={{ minHeight: "35vh" }} pt={4}></Container>
+      </BgImage>
+      <Container
+        sx={{
+          py: [1, 2, 2, 2],
+          maxWidth: "100%",
+          bottom: 0,
+          backgroundColor: "primary",
+        }}
+      >
+        <Heading
           sx={{
-            my: [1, 2, 2, 2],
-            position: "absolute",
-            maxWidth: "100%",
-            bottom: 0,
+            fontSize: [4, 4, 6, 6],
           }}
         >
-          <Heading
-            sx={{
-              fontSize: [4, 4, 6, 6],
-              color: "white",
-            }}
-          >
-            {title ? title : ""}
-          </Heading>
-          <Text sx={{ fontSize: [3, 4], color: "white" }}>
-            {subtitle ? subtitle : ""}
-          </Text>
-        </Box>
+          {title ? title : ""}
+        </Heading>
+        <Text sx={{ fontSize: [3, 4]  }}>
+          {subtitle ? subtitle : ""}
+        </Text>
       </Container>
-    </BgImage>
+    </Box>
   );
 };
 

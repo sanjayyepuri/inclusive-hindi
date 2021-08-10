@@ -1,10 +1,11 @@
+console.log(`pathPrefix: ${process.env.PATH_PREFIX}`);
 require("dotenv").config();
-
 module.exports = {
   siteMetadata: {
     siteUrl: "https://utw11109.utweb.utexas.edu/",
     title: "Inclusive Hindi",
   },
+  pathPrefix: process.env.PATH_PREFIX,
   plugins: [
     {
       resolve: "gatsby-source-contentful",

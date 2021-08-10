@@ -28,7 +28,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
+    - name: Cancel Previous Runs
+      uses: styfle/cancel-workflow-action@0.9.1
+      with: access_token: ${{ github.token }}
+
     - name: Checkout
       uses: actions/checkout@v2.3.1
     
@@ -38,9 +41,13 @@ jobs:
         node-version: 14
         cache: yarn
     
-    - run: |
+    - env:
+        CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+        CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+        PATH_PREFIX: /inclusive-hindi/
+      run: |
         yarn
-        PATH_PREFIX=/inclusive-hindi/ yarn build
+        yarn build
     
     - name: Deploy 🚀
       uses: crazy-max/ghaction-github-pages@v2.5.0
