@@ -8,7 +8,7 @@ const TeamMember = ({ data }) => {
   const propic = getImage(profileImage.localFile);
 
   return (
-    <Card>
+    <Card sx={{ my: 2 }}>
       <h2> {name} </h2>
       <Grid columns={[2, "2fr 1fr"]}>
         <Box>
