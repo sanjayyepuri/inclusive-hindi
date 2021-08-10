@@ -3488,12 +3488,11 @@ __metadata:
   linkType: hard
 
 "@types/vfile-message@npm:*":
-  version: 1.0.1
-  resolution: "@types/vfile-message@npm:1.0.1"
+  version: 2.0.0
+  resolution: "@types/vfile-message@npm:2.0.0"
   dependencies:
-    "@types/node": "*"
-    "@types/unist": "*"
-  checksum: 254b8399645dcdd9e246002b2ba99526aa40b1ba941ad18085f21d8531c3e2ed04346e864c79c0c17a67dfe96ad2258e9e3a8c441783783e49c32dc8cfb0484b
+    vfile-message: "*"
+  checksum: 3c019a88d6ae8bb77316345d50497fecbb4f020057afb1c330ccb936a48f1bc412e5a09e1accb1537d22e7776b88e25679c477088048d575f477cbe3777eb605
   languageName: node
   linkType: hard
 
@@ -17802,8 +17801,8 @@ resolve@^2.0.0-next.3:
   linkType: hard
 
 "tar@npm:^6.0.2, tar@npm:^6.1.0":
-  version: 6.1.6
-  resolution: "tar@npm:6.1.6"
+  version: 6.1.7
+  resolution: "tar@npm:6.1.7"
   dependencies:
     chownr: ^2.0.0
     fs-minipass: ^2.0.0
@@ -17811,7 +17810,7 @@ resolve@^2.0.0-next.3:
     minizlib: ^2.1.1
     mkdirp: ^1.0.3
     yallist: ^4.0.0
-  checksum: 583f1165281746b4c48adee4ff7bab4895e73999eeda3c8d59779e47c29dc1dc714d832608a491fead4fd794bf9e0bd51b3d4a4fbad87f487a8b360321d70e8c
+  checksum: c54c069341140ffed769be0517b6152799b109c6bed448573294169154be328c5e4982fcd1dea54ed429dcee8450e4fd301514318078c5e5515c0ddf811e8bdf
   languageName: node
   linkType: hard
 
@@ -18595,6 +18594,15 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"unist-util-stringify-position@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "unist-util-stringify-position@npm:3.0.0"
+  dependencies:
+    "@types/unist": ^2.0.0
+  checksum: 460d5e16065942da7acd2578e92f4b8421c5af1f3f15ebc858db90865be69a5454dd6638d73f855cc82b1fa9e6e941a258f97b3f5f3be4f2766b0e6f6c45a031
+  languageName: node
+  linkType: hard
+
 "unist-util-visit-children@npm:^1.0.0":
   version: 1.1.4
   resolution: "unist-util-visit-children@npm:1.1.4"
@@ -18961,6 +18969,16 @@ resolve@^2.0.0-next.3:
   version: 3.2.0
   resolution: "vfile-location@npm:3.2.0"
   checksum: 9bb3df6d0be31b5dd2d8da0170c27b7045c64493a8ba7b6ff7af8596c524fc8896924b8dd85ae12d201eead2709217a0fbc44927b7264f4bbf0aa8027a78be9c
+  languageName: node
+  linkType: hard
+
+"vfile-message@npm:*":
+  version: 3.0.1
+  resolution: "vfile-message@npm:3.0.1"
+  dependencies:
+    "@types/unist": ^2.0.0
+    unist-util-stringify-position: ^3.0.0
+  checksum: 8b41b2582687503a952271786a3895a84755d3ec0db09c970b45da4f8bd86be06982279468f430e3010268e496966de4b2ba833a0e5a1a5a6f2f29161db33bd1
   languageName: node
   linkType: hard
 
