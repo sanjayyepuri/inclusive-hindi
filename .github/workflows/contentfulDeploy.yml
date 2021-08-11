@@ -58,8 +58,4 @@ jobs:
       with:
         build_dir: public
         jekyll: false
-        dry_run: true
-        
-    
-    
-        
+
