@@ -8,6 +8,9 @@ on:
   push: 
     branches: [ main ]
     
+  repository_dispatch:
+    types: [ contentful.publish ]
+    
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
