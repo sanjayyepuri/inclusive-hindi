@@ -1,21 +1,16 @@
 /** @jsx jsx */
 import { graphql } from "gatsby";
-import { Box, Grid, Card, Button, jsx } from "theme-ui";
-import {IoDownloadSharp }from "@react-icons/all-files/io5/IoDownloadSharp"
+import { jsx } from "theme-ui";
+import {IoDocumentText }from "@react-icons/all-files/io5/IoDocumentText"
 
 const Asset = ({ data }) => {
   return (
-    <Card>
-     
       <p> 
-        {data.title} { " " }(
         <a href={data.localFile.publicURL}> 
-          Download <IoDownloadSharp />
+         <IoDocumentText /> { " " } { data.title} 
         </a>
-        )
       </p>
-        
-    </Card>);
+  );
 };
 
 const AssetFragment = graphql`
