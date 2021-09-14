@@ -1,5 +1,6 @@
 import * as React from "react";
 import { NavLink, Box } from "theme-ui";
+import CreativeCommons from "./creativeCommons";
 
 const footerLinks = [
   { label: "Emergency Information", href: "https://emergency.utexas.edu/" },
@@ -52,7 +53,7 @@ const Footer = () => (
       ))}
 
       <Box sx={{ mx: "auto" }} />
-      <Box sx={{ p: 4 }}>© 2019 Jane Doe</Box>
+      <Box sx={{ p: 4 }}> <CreativeCommons /> <br/> The Inclusive Hindi Project</Box>
     </Box>
   </Box>
 );
