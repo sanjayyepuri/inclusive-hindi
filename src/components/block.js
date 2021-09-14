@@ -25,6 +25,9 @@ const BlockFragment = graphql`
         ... on ContentfulTeamMember {
           ...TeamMemberRenderFields
         }
+        ... on ContentfulAsset {
+          ...AssetRenderFields
+        }
       }
     }
   }
