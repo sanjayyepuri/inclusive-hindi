@@ -37,7 +37,7 @@ const Page = ({ data }) => {
   return (
     <Layout>
       {splash}
-      <Grid columns={[2, "2fr 1fr"]}>
+      <Grid columns={[1, null, "2fr 1fr"]}>
         <Box>
           {content.map((section) => {
             const Comp = contentfulMapping[section.__typename];
